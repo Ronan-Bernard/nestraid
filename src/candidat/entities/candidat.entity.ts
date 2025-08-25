@@ -1,7 +1,8 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { HeroCategory } from '../../models/hero-category.enum';
-import { Trait } from './trait.entity';
 import { HeroClass } from '../../models/hero-class.enum';
+import { Trait } from './trait.entity';
+import { Stat } from './stat.entity';
 
 @Entity()
 export class Candidat {
@@ -35,4 +36,22 @@ export class Candidat {
 
   @OneToMany(() => Trait, (trait) => trait.candidats)
   traits: Trait[];
+
+  @OneToMany(() => Stat, (stat) => stat.candidats)
+  stats: Stat[];
+
+  @Column()
+  equipement: number;
+
+  @Column()
+  fidelite: number;
+
+  @Column()
+  discipline: number;
+
+  @Column()
+  egoisme: number;
+
+  @Column()
+  leadership: number;
 }

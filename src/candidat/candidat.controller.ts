@@ -17,7 +17,10 @@ export class CandidatController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCandidatDto: UpdateCandidatDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCandidatDto: UpdateCandidatDto,
+  ) {
     return this.candidatService.update(+id, updateCandidatDto);
   }
 
