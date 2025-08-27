@@ -12,7 +12,8 @@ export class CandidatService {
 
     const candidatsInfos = cdObj.candidats.map(
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      ({ IS_TANK, IS_HEAL, IS_DPS, fidelite, discipline, egoisme, ...rest }) => rest,
+      ({ IS_TANK, IS_HEAL, IS_DPS, fidelite, discipline, egoisme, ...rest }) =>
+        rest,
     );
     return JSON.stringify({ candidats: candidatsInfos }, null, 2);
   }

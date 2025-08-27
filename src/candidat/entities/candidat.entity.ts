@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { HeroCategory } from '../../models/hero-category.enum';
-import { HeroClass } from '../../models/hero-class.enum';
+import { HeroCategory } from '@raidleader/shared';
+import { HeroClass } from '@raidleader/shared';
 import { Trait } from './trait.entity';
 import { Stat } from './stat.entity';
 

@@ -1,6 +1,6 @@
 import { randomInt } from 'crypto';
-import { HeroCategory } from '../models/hero-category.enum';
-import { HeroClass } from '../models/hero-class.enum';
+import { HeroCategory } from '@raidleader/shared';
+import { HeroClass } from '@raidleader/shared';
 import { HeroStat } from '../models/hero-stat.enum';
 import { random100 } from '../utils/random100';
 import { Candidat } from './entities/candidat.entity';
@@ -11,12 +11,12 @@ import { traitValues } from './values/trait.values';
 export class CandidatGenerator {
   TRAITS_COUNT = 2;
   CATEGORY_TRENDS = {
-    Tank: 23,
-    Dps: 45,
-    Heal: 23,
-    BiTankDps: 4,
-    BiDpsHeal: 4,
-    BiHealTank: 1,
+    TANK: 23,
+    DPS: 45,
+    HEAL: 23,
+    TANK_DPS: 4,
+    DPS_HEAL: 4,
+    TANK_HEAL: 1,
   };
 
   CLASS_TRENDS = {
@@ -39,7 +39,8 @@ export class CandidatGenerator {
     const candidat = new Candidat();
 
     candidat.heroCategory = random100(HeroCategory, this.CATEGORY_TRENDS);
-    candidat.heroClass = random100(HeroClass, this.CLASS_TRENDS);
+    console.log(random100(HeroClass, this.CLASS_TRENDS)); // undefined
+    //candidat.heroClass = random100(HeroClass, this.CLASS_TRENDS);
     // heroClass, heroCategory : répartition mitigé par tendance
 
     candidat.traits = this.newCandidatTraits();
@@ -54,6 +55,8 @@ export class CandidatGenerator {
     candidat.discipline = randomInt(1, 10);
     candidat.egoisme = randomInt(1, 10);
     candidat.leadership = randomInt(1, 10);
+
+    // nickname : à voir
 
     // irl : âge, sexe
     return candidat;

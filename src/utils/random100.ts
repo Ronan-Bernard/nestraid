@@ -1,9 +1,6 @@
 import { randomInt } from 'node:crypto';
 
-function random(
-  enumerator: any,
-  trends: object
-): number {
+function random(enumerator: any, trends: object): number {
   // TODO : au lieu de 100, faire la somme des trends
 
   const total = Object.values(trends).reduce((sum, v) => sum + Number(v), 0);
